@@ -34,3 +34,27 @@ console.log(obj4);  //  { '1': 'A', '2': 'B', '3': 'A', '4': 'B' }
 
 console.log(Object.keys(tinderUser));   // [ 'id', 'name', 'isLoggedIn' ]
 
+// De-structuring
+
+const course = {
+    course_name: "Chai aur JS",
+    price: "999",
+    course_instructor: "John"
+}
+
+// course.course_instructor
+
+// **************************************************
+const {course_instructor: instructor} = course  // De-structuring
+// **************************************************
+console.log(instructor);    // John
+
+// const navbar = ({company}) => { // de-struct using curly braces {} }
+// navbar(company = "Hitesh")
+
+/* ***************** JSON *********************
+{
+    "name": "John",
+    "course_name": "JS in Hindi",
+    "price": "Free"
+}; */
