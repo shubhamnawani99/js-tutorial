@@ -23,3 +23,26 @@ function loginUserMessage(user_name = "Sam"){  // assigning default values using
 }
 console.log(loginUserMessage("User1")); // User1 just logged in
 console.log(loginUserMessage()); // Sam just logged in 
+
+// Spread and Rest operators
+function calculateCartPrice(...prices){
+    return prices
+}
+console.log(calculateCartPrice(200, 400, 500)); // [ 200, 400, 500 ]
+
+// Objects and Functions
+const user = {
+    user_name: "John",
+    price: 199
+}
+function handleObject(anyObj){
+    console.log(`Username is ${anyObj.user_name} and price is ${anyObj.price}`);
+}
+handleObject(user)  // Username is John and price is 199
+handleObject({user_name: "Doe", price: "799"})  // Username is Doe and price is 799
+
+const myNewArray = [200, 400, 100, 650]
+function returnSecondVal(getArray){
+    return getArray[1]
+}
+console.log(returnSecondVal(myNewArray));   // 400
