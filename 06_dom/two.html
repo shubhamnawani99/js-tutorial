@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM | Chai aur Code</title>
+</head>
+<body style="background-color: #212121; color:azure">
+    <div class="parent">
+        Days of the Week
+        <div class="day">Monday</div>
+        <div class="day">Tuesday</div>
+        <div class="day">Wednesday</div>
+        <div class="day">Thursday</div>
+    </div>
+</body>
+<script>
+    let parent = document.querySelector('.parent');
+    // console.log(parent);
+    // console.log(parent.children[1].innerHTML);
+    for (let index = 0; index < parent.children.length; index++) {
+        // console.log(parent.children[index].innerHTML);
+    }
+    // parent.children.forEach(()=>{}) // Uncaught TypeError: parent.children.forEach is not a function
+    parent.children[0].style.color = 'Orange'
+    // console.log(parent.firstElementChild);
+    // console.log(parent.lastElementChild);
+    const dayOne = document.querySelector('.day')  // selects the first day
+    // console.log(dayOne);
+    // console.log(dayOne.parentElement);  //  <div class="parent">
+    // console.log(dayOne.nextElementSibling); // <div class="day">Tuesday</div>
+    
+    console.log("Nodes: ", parent.childNodes);
+    // Nodes: NodeList(9) [ #text, div.day, #text, div.day, #text, div.day, #text, div.day, #text ]
+</script>
+
+</html>
