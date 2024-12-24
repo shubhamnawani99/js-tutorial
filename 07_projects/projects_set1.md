@@ -158,4 +158,61 @@ if (playGame) {
     console.log();
   });
 }
+
+```
+
+# Project 5 - Keyboard Check
+```js
+const insert = document.getElementById('insert');
+window.addEventListener('keydown', (e) => {
+  insert.innerHTML = `
+    <div class='color'>
+    <table>
+    <tr>
+      <th>Key</th>
+      <th>Keycode</th>
+      <th>Code</th>
+    </tr>
+    <tr>
+      <td>${e.key === ' ' ? 'Space' : e.key}</td>
+      <td>${e.keyCode}</td>
+      <td>${e.code}</td>
+    </tr>
+  </table>  
+    </div>
+  `;
+});
+```
+
+
+# Project 6 - Unlimited Colors
+
+```js
+const letters = '0123456789ABCDEF';
+// Generate a random color
+const generateColor = () => {
+  let hexCode = '#';
+  for (let i = 0; i < 6; i++) {
+    hexCode += letters[Math.floor(Math.random() * 15)];
+  }
+  document.querySelector('body').style.backgroundColor = hexCode;
+  console.log(hexCode);
+};
+
+// Initial Setup
+let setBackground;
+
+// Event Listeners to start and stop the code
+document.querySelector('#start').addEventListener('click', (e) => {
+  setBackground = setInterval(generateColor, 1000);
+  // Disable the start button
+  e.target.disabled = true;
+  console.log(e.target);
+});
+document.querySelector('#stop').addEventListener('click', () => {
+  clearInterval(setBackground);
+  // flush out interval id
+  document.querySelector('#start').disabled = false;
+  setBackground = null;
+});
 ```
