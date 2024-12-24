@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: #212121; color: aliceblue">
+    <h1>Chai aur JS</h1>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+    <h1 id="clock"></h1>
+</body>
+<script>
+    const sayDate = function (){
+        // console.log(new Date().toLocaleTimeString())
+        document.querySelector('#clock').innerHTML = new Date().toLocaleTimeString()
+    }
+    let intervalId = setInterval(sayDate, 1000)
+    document.querySelector('#stop').addEventListener('click', (e)=>{
+        clearInterval(intervalId)    // To remove timeouts
+        console.log("Stopped");
+    }, false)
+    document.querySelector('#start').addEventListener('click', ()=>{
+        intervalId = setInterval(sayDate, 1000)
+    })
+</script>
+</html>

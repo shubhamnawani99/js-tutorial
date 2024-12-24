@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: #212121; color: aliceblue">
+    <h1>Chai aur code</h1>
+    <button id="stop">Stop</button>
+</body>
+<script>
+    const changeText = setTimeout(()=>{
+        document.querySelector('h1').innerHTML = "Best JS Series"
+    }, 2000, )
+    // setInterval(() => console.log(new Date().toLocaleTimeString()), 1000)
+    
+    document.querySelector('#stop').addEventListener('click', (e)=>{
+        clearTimeout(changeText)    // To remove timeouts
+        console.log("Stopped");
+        
+    }, false)
+</script>
+</html>
