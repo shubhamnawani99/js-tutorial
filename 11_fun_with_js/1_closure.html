@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Closure and JS</title>
+</head>
+<body style="background-color: #212121; color: aliceblue;">
+    <button id="orange">Orange</button>
+    <button id="green">Green</button>
+    <button id="yellow">Yellow</button>
+</body>
+<script>
+    // function init() {
+    //     let name = "Mozilla";       
+    //     // Lexical Scoping
+    //     function displayName(){
+    //         console.log(name);  
+    //     }
+    //     displayName();
+    // }
+    // init();
+
+    // this is a closure
+    function makeFunc() {
+        const name = "Mozilla";
+        function displayName() {
+            console.log(name);
+        }
+        return displayName; // fun language lol
+    } 
+    const myFunc = makeFunc();  // returns a refernce to the inner function + it's lexical scope
+    // thus, both the function displayName() and the const name is available in memory reference    
+    myFunc();   //  makeFunc()();
+</script>
+<script>
+    function clickHandler(color){
+        return ()=>document.body.style.backgroundColor = `${color}`
+    }
+    function handle(color){
+        return document.body.style.backgroundColor = `${color}`
+    }
+    // Using Closure
+    document.getElementById("orange").onclick = clickHandler("orange")
+    // Using event handler and arrow function (anon-function)
+    document.getElementById("green").addEventListener("click",(e)=>{
+        document.body.style.backgroundColor = e.target.id
+    })
+    // Using returning the functionality
+    document.getElementById("yellow").addEventListener("click",(e)=>{handle("yellow")})
+</script>
+</html>
